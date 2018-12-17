@@ -100,7 +100,7 @@ default_platform_lib_function = sipconfig.SIPModuleMakefile.platform_lib
 
 
 def custom_platform_lib_function(self, clib, framework=0):
-    if os.path.isabs(clib):
+    if os.path.isabs(clib) or clib.startswith('-l'):
         return clib
     return default_platform_lib_function(self, clib, framework)
 
